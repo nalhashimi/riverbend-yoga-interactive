@@ -1,0 +1,576 @@
+/* ==========================================================
+   Riverbend Yoga Studio - shared stylesheet
+   Mobile-first: base styles target small screens, and the
+   media queries at the bottom adjust the layout for wider ones.
+   ========================================================== */
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Color palette (4 main colors) */
+  --color-teal: #1e4d4f;   /* primary: headings, header, footer, buttons */
+  --color-gold: #e8a33d;   /* accent: highlights, borders, focus rings */
+  --color-cream: #faf7f2;  /* page background */
+  --color-ink: #2b2b2b;    /* body text */
+
+  /* Supporting tints of the palette (not new colors) */
+  --color-teal-light: #e6eeee;
+  --color-white: #ffffff;
+
+  /* Typography (2 font families) */
+  --font-heading: "Lora", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+
+  --radius: 10px;
+  --content-width: 1100px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;      /* 17px: slightly larger for older adults */
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* ---------- Typography and hierarchy ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-teal);
+  line-height: 1.25;
+  margin: 0 0 var(--space-sm);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-bottom: var(--space-xs);
+  border-bottom: 3px solid var(--color-gold);
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+  max-width: 65ch;           /* keeps lines a comfortable reading length */
+}
+
+a {
+  color: var(--color-teal);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Header and navigation ---------- */
+.site-header {
+  background-color: var(--color-white);
+  border-bottom: 4px solid var(--color-teal);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.brand img {
+  width: 120px;
+  border-radius: 0;
+}
+
+.site-header nav {
+  width: 100%;
+}
+
+.site-header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;     /* stacked links on phones */
+  gap: var(--space-xs);
+}
+
+.site-header nav a {
+  display: block;
+  padding: 0.75rem var(--space-sm);   /* large tap targets */
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-teal);
+  background-color: var(--color-teal-light);
+  border-radius: var(--radius);
+}
+
+.site-header nav a:hover {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+.site-header nav a[aria-current="page"] {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+/* ---------- Main content ---------- */
+main {
+  padding: var(--space-md) var(--space-sm) var(--space-lg);
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+main > section {
+  background-color: var(--color-white);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 4px rgba(30, 77, 79, 0.08);
+}
+
+main > section > img,
+main picture img,
+figure img {
+  margin: var(--space-sm) 0;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Schedule, pricing and workshop lists: easy to scan */
+.schedule-list,
+.price-list,
+.workshop-list {
+  list-style: none;
+  padding: 0;
+}
+
+.schedule-list li,
+.price-list li,
+.workshop-list li {
+  padding: 0.75rem var(--space-sm);
+  background-color: var(--color-cream);
+  border-left: 4px solid var(--color-gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Cards (class types, instructor bios) */
+.card-grid,
+.card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.card {
+  background-color: var(--color-cream);
+  border-top: 4px solid var(--color-teal);
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.card p {
+  margin-bottom: 0;
+}
+
+/* Instructor photo + bios */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Figure and caption */
+figure {
+  margin: 0 0 var(--space-md);
+}
+
+figcaption {
+  font-style: italic;
+  color: var(--color-teal);
+  padding-left: var(--space-sm);
+  border-left: 3px solid var(--color-gold);
+}
+
+/* Audio */
+.breathing-audio {
+  width: 100%;
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+/* Button-style link */
+.button,
+button {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover,
+button:hover {
+  background-color: var(--color-ink);
+  color: var(--color-white);
+}
+
+/* ---------- Form ---------- */
+.interest-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 640px;
+}
+
+fieldset {
+  border: 1px solid #c9d6d6;
+  border-radius: var(--radius);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+legend {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-teal);
+  padding: 0 var(--space-xs);
+}
+
+label {
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  border: 1px solid #8fa5a6;
+  border-radius: 6px;
+  margin-bottom: var(--space-xs);
+}
+
+.choice-group {
+  gap: 0;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.35rem 0;
+}
+
+.choice input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--color-teal);
+}
+
+.choice label {
+  font-weight: 400;
+}
+
+.interest-form button {
+  align-self: flex-start;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-lg) var(--space-sm);
+}
+
+.site-footer p {
+  margin: 0 auto var(--space-xs);
+}
+
+/* ==========================================================
+   Tablet and up (768px+)
+   ========================================================== */
+@media (min-width: 768px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .site-header nav {
+    width: auto;
+  }
+
+  .site-header ul {
+    flex-direction: row;       /* links sit side by side */
+    flex-wrap: wrap;
+  }
+
+  .site-header nav a {
+    padding: 0.5rem var(--space-sm);
+    background-color: transparent;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  main {
+    padding: var(--space-lg) var(--space-lg);
+  }
+
+  main > section {
+    padding: var(--space-lg);
+  }
+
+  /* Class cards: two per row */
+  .card-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-grid .card {
+    flex: 1 1 calc(50% - var(--space-sm));
+  }
+
+  /* Radio buttons in a row */
+  .choice-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: var(--space-md);
+  }
+}
+
+/* ==========================================================
+   Desktop (1024px+)
+   ========================================================== */
+@media (min-width: 1024px) {
+  /* Instructor photo beside the bios */
+  .split {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .split > img {
+    flex: 0 0 340px;
+    margin: 0;
+  }
+
+  .card-stack {
+    flex: 1;
+  }
+
+  /* Four class cards in one row */
+  .card-grid .card {
+    flex: 1 1 calc(25% - var(--space-sm));
+  }
+}
+
+/* ==========================================================
+   Touchstone 4: Class Finder and form validation
+   ========================================================== */
+
+/* Filter buttons */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0;
+}
+
+.filter-button {
+  padding: 0.55rem 1rem;
+  background-color: var(--color-teal-light);
+  color: var(--color-teal);
+  border: 2px solid transparent;
+  font-size: 0.95rem;
+}
+
+.filter-button:hover {
+  background-color: var(--color-teal-light);
+  color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.filter-button[aria-pressed="true"] {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+.finder-status {
+  font-size: 0.95rem;
+  color: var(--color-teal);
+}
+
+/* Saved class banner */
+.saved-class {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-sm);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  background-color: var(--color-cream);
+  border-left: 4px solid var(--color-gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.saved-class p {
+  margin: 0;
+}
+
+.clear-class-button {
+  padding: 0.35rem 0.85rem;
+  background-color: transparent;
+  color: var(--color-teal);
+  border: 1px solid var(--color-teal);
+  font-size: 0.9rem;
+}
+
+.clear-class-button:hover {
+  background-color: var(--color-teal-light);
+  color: var(--color-teal);
+}
+
+/* Class cards built by JavaScript */
+.finder-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.finder-card p {
+  margin-bottom: var(--space-xs);
+}
+
+.class-meta {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-teal);
+}
+
+.finder-card.is-saved {
+  border-top-color: var(--color-gold);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.save-class-button {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+}
+
+.save-class-button[aria-pressed="true"] {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Form validation feedback */
+.error-message {
+  margin: -0.25rem 0 var(--space-xs);
+  color: #a3261b;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.error-message:empty {
+  display: none;
+}
+
+[aria-invalid="true"] {
+  border-color: #a3261b !important;
+  box-shadow: 0 0 0 1px #a3261b;
+}
+
+.form-status {
+  margin: 0;
+  font-weight: 700;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status.is-error {
+  color: #a3261b;
+}
+
+.form-status.is-success {
+  padding: var(--space-sm);
+  color: var(--color-teal);
+  background-color: var(--color-teal-light);
+  border-radius: var(--radius);
+}
+
+.choice-group .error-message {
+  flex-basis: 100%;
+  margin-top: var(--space-xs);
+}
+
+/* Radio groups show their error under the legend instead */
+input[type="radio"][aria-invalid="true"] {
+  box-shadow: none;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View Riverbend Yoga Studio's monthly workshops and request a spot or more information.">
+  <title>Workshops and Events | Riverbend Yoga Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Nunito+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="yoga-logo_c.png" alt="Riverbend Yoga Studio home" width="120">
+    </a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Classes and Services</a></li>
+        <li><a href="about.html">About the Studio</a></li>
+        <li><a href="events.html" aria-current="page">Workshops and Events</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Workshops and Events</h1>
+
+    <section>
+      <h2>Monthly Workshops</h2>
+      <figure>
+        <img src="yoga-workshop_c.png" alt="Diverse group of students sitting cross-legged on yoga mats and smiling during a guided meditation workshop at the studio" width="600">
+        <figcaption>Our monthly workshops keep groups small so every student gets personal guidance.</figcaption>
+      </figure>
+      <ul class="workshop-list">
+        <li><strong>Yoga Basics for Beginners</strong> &ndash; Saturday, November 7, 1:00 p.m. to 3:00 p.m.</li>
+        <li><strong>Desk Stress Relief for Professionals</strong> &ndash; Wednesday, November 18, 6:30 p.m. to 8:00 p.m.</li>
+        <li><strong>Balance and Mobility for Older Adults</strong> &ndash; Saturday, November 21, 10:00 a.m. to 11:30 a.m.</li>
+        <li><strong>Restorative Rest and Breathwork</strong> &ndash; Friday, November 27, 7:00 p.m. to 8:30 p.m.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Request a Spot</h2>
+      <p>Fill out this form to request a spot in a workshop or ask about a class. A team member will contact you within two business days. Fields marked with an asterisk (*) are required.</p>
+
+      <form class="interest-form" id="interest-form" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Your Contact Information</legend>
+
+          <label for="full-name">Full name *</label>
+          <input type="text" id="full-name" aria-describedby="full-name-error" name="full-name" autocomplete="name" minlength="2" maxlength="60" required>
+          <p class="error-message" id="full-name-error" aria-live="polite"></p>
+
+          <label for="email">Email address *</label>
+          <input type="email" id="email" aria-describedby="email-error" name="email" autocomplete="email" required>
+          <p class="error-message" id="email-error" aria-live="polite"></p>
+
+          <label for="phone">Phone number (optional, format: 555-555-5555)</label>
+          <input type="tel" id="phone" aria-describedby="phone-error" name="phone" autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555">
+          <p class="error-message" id="phone-error" aria-live="polite"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your Interest</legend>
+
+          <label for="interest">Class or event interest *</label>
+          <select id="interest" aria-describedby="interest-error" name="interest" required>
+            <option value="">Choose a class or workshop</option>
+            <option value="gentle-flow">Gentle Flow class</option>
+            <option value="vinyasa">Vinyasa class</option>
+            <option value="restorative">Restorative Yoga class</option>
+            <option value="chair-yoga">Chair Yoga class</option>
+            <option value="private-session">Private session</option>
+            <option value="workshop-basics">Workshop: Yoga Basics for Beginners</option>
+            <option value="workshop-desk">Workshop: Desk Stress Relief for Professionals</option>
+            <option value="workshop-balance">Workshop: Balance and Mobility for Older Adults</option>
+            <option value="workshop-restorative">Workshop: Restorative Rest and Breathwork</option>
+          </select>
+          <p class="error-message" id="interest-error" aria-live="polite"></p>
+        </fieldset>
+
+        <fieldset class="choice-group">
+          <legend>Experience Level *</legend>
+          <div class="choice">
+            <input type="radio" id="level-new" name="experience" value="new" required>
+            <label for="level-new">New to yoga</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="level-some" name="experience" value="some">
+            <label for="level-some">Some experience</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="level-regular" name="experience" value="regular">
+            <label for="level-regular">Regular practice</label>
+          </div>
+          <p class="error-message" id="experience-error" aria-live="polite"></p>
+        </fieldset>
+
+        <fieldset class="choice-group">
+          <legend>Preferred Contact Method *</legend>
+          <div class="choice">
+            <input type="radio" id="contact-email" name="contact-method" value="email" required>
+            <label for="contact-email">Email</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="contact-phone" name="contact-method" value="phone">
+            <label for="contact-phone">Phone call</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="contact-text" name="contact-method" value="text">
+            <label for="contact-text">Text message</label>
+          </div>
+          <p class="error-message" id="contact-method-error" aria-live="polite"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Anything Else?</legend>
+          <label for="message">Message (questions, goals, or accessibility needs)</label>
+          <textarea id="message" aria-describedby="message-error" name="message" rows="5" cols="40" maxlength="500"></textarea>
+          <p class="error-message" id="message-error" aria-live="polite"></p>
+        </fieldset>
+
+        <button type="submit">Request My Spot</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Riverbend Yoga Studio &middot; 412 River Road, Suite 2 &middot; (555) 014-2290</p>
+    <p>Open Monday through Saturday, 6:30 a.m. to 8:30 p.m.</p>
+    <p><small>&copy; 2026 Riverbend Yoga Studio. All rights reserved.</small></p>
+  </footer>
+</body>
+</html>
